@@ -20,6 +20,7 @@
       --texto-suave: #8db397;
       --linea: #2b5e39;
       --dorado: #d9c58a;
+      --rojo: #ff6861;
     }
 
     * {
@@ -62,9 +63,9 @@
     .lineas-pantalla {
       position: fixed;
       inset: 0;
+      z-index: 20;
       pointer-events: none;
       opacity: 0.15;
-      z-index: 20;
 
       background:
         linear-gradient(
@@ -76,27 +77,33 @@
     }
 
     .contenedor {
-      width: min(900px, calc(100% - 28px));
+      width: min(920px, calc(100% - 24px));
       margin: 22px auto 48px;
     }
 
     .panel {
       position: relative;
       overflow: hidden;
-      padding: clamp(20px, 5vw, 50px);
 
-      background: rgba(5, 19, 12, 0.95);
-      border: 1px solid var(--linea);
+      padding:
+        clamp(22px, 5vw, 52px);
+
+      border:
+        1px solid var(--linea);
+
+      background:
+        rgba(5, 19, 12, 0.96);
 
       box-shadow:
-        0 0 35px rgba(73, 255, 111, 0.12);
+        0 0 35px rgba(73, 255, 111, 0.13);
     }
 
     .panel::before {
       content: "";
       position: absolute;
       inset: 10px;
-      border: 1px solid rgba(124, 255, 138, 0.15);
+      border:
+        1px solid rgba(124, 255, 138, 0.15);
       pointer-events: none;
     }
 
@@ -112,82 +119,43 @@
       display: inline-block;
       padding: 8px 14px;
 
-      border: 1px solid var(--verde);
-      color: var(--verde);
+      border:
+        1px solid var(--verde);
 
-      letter-spacing: 0.17em;
-      font-size: 0.85rem;
+      color:
+        var(--verde);
+
+      letter-spacing:
+        0.17em;
+
+      font-size:
+        0.82rem;
     }
 
     h1 {
       margin: 22px 0 8px;
-      font-size: clamp(27px, 6vw, 50px);
-      letter-spacing: 0.07em;
+
+      font-size:
+        clamp(27px, 6vw, 50px);
+
+      letter-spacing:
+        0.07em;
     }
 
     h2 {
-      font-size: clamp(21px, 4vw, 34px);
-      letter-spacing: 0.06em;
+      font-size:
+        clamp(21px, 4vw, 34px);
+
+      letter-spacing:
+        0.06em;
     }
 
     .subtitulo {
-      color: var(--texto-suave);
-      letter-spacing: 0.1em;
-    }
+      color:
+        var(--texto-suave);
 
-    .linea-arranque {
-      margin: 14px 0;
-      color: var(--verde-claro);
-    }
-
-    .progreso {
-      height: 14px;
-      margin: 18px 0;
-      padding: 2px;
-      border: 1px solid var(--linea);
-    }
-
-    .barra {
-      width: 0;
-      height: 100%;
-      background: var(--verde);
-      transition: width 0.55s ease;
-    }
-
-    .datos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 28px 0;
-    }
-
-    .dato {
-      padding: 13px;
-      border: 1px solid var(--linea);
-    }
-
-    .etiqueta {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--texto-suave);
-      font-size: 0.78rem;
-    }
-
-    .mensaje {
-      padding: 24px 0;
-      border-top: 1px dashed var(--linea);
-      border-bottom: 1px dashed var(--linea);
-
-      line-height: 1.75;
-      font-size: 1.03rem;
-      white-space: pre-line;
-    }
-
-    .estado {
-      margin-top: 24px;
-      text-align: center;
-      color: var(--verde);
-      font-weight: bold;
+      letter-spacing:
+        0.1em;
     }
 
     .acciones {
@@ -195,71 +163,510 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 22px;
+
+      margin-top:
+        24px;
     }
 
     button,
     .boton {
       display: inline-block;
-      padding: 12px 18px;
 
-      background: transparent;
-      border: 1px solid var(--verde);
-      color: var(--verde);
+      padding:
+        13px 19px;
 
-      font: inherit;
-      text-decoration: none;
-      cursor: pointer;
+      border:
+        1px solid var(--verde);
+
+      background:
+        transparent;
+
+      color:
+        var(--verde);
+
+      font:
+        inherit;
+
+      text-decoration:
+        none;
+
+      cursor:
+        pointer;
     }
 
     button:hover,
     .boton:hover {
-      background: rgba(124, 255, 138, 0.08);
+      background:
+        rgba(124, 255, 138, 0.09);
+    }
+
+    .boton-inicio {
+      margin-top:
+        32px;
+
+      min-width:
+        min(100%, 330px);
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        0.08em;
+    }
+
+    .aviso-audio {
+      margin-top:
+        12px;
+
+      color:
+        var(--texto-suave);
+
+      font-size:
+        0.82rem;
+    }
+
+    .terminal {
+      margin-top:
+        30px;
+
+      min-height:
+        210px;
+
+      padding:
+        20px;
+
+      border:
+        1px solid var(--linea);
+
+      background:
+        rgba(0, 0, 0, 0.28);
+    }
+
+    .linea-arranque {
+      margin:
+        12px 0;
+
+      color:
+        var(--verde-claro);
+    }
+
+    .progreso {
+      height:
+        15px;
+
+      margin:
+        20px 0;
+
+      padding:
+        2px;
+
+      border:
+        1px solid var(--linea);
+    }
+
+    .barra {
+      width:
+        0;
+
+      height:
+        100%;
+
+      background:
+        var(--verde);
+
+      transition:
+        width 0.55s ease;
+    }
+
+    .radar-area {
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      margin:
+        30px 0;
+    }
+
+    .radar {
+      position:
+        relative;
+
+      width:
+        180px;
+
+      height:
+        180px;
+
+      overflow:
+        hidden;
+
+      border:
+        2px solid var(--verde);
+
+      border-radius:
+        50%;
+
+      background:
+        repeating-radial-gradient(
+          circle,
+          rgba(124, 255, 138, 0.08) 0,
+          rgba(124, 255, 138, 0.08) 1px,
+          transparent 2px,
+          transparent 34px
+        );
+    }
+
+    .radar::before,
+    .radar::after {
+      content:
+        "";
+
+      position:
+        absolute;
+
+      background:
+        rgba(124, 255, 138, 0.25);
+    }
+
+    .radar::before {
+      left:
+        50%;
+
+      top:
+        0;
+
+      width:
+        1px;
+
+      height:
+        100%;
+    }
+
+    .radar::after {
+      top:
+        50%;
+
+      left:
+        0;
+
+      width:
+        100%;
+
+      height:
+        1px;
+    }
+
+    .barrido {
+      position:
+        absolute;
+
+      inset:
+        50% 50% auto auto;
+
+      width:
+        50%;
+
+      height:
+        50%;
+
+      transform-origin:
+        bottom right;
+
+      background:
+        linear-gradient(
+          45deg,
+          transparent 50%,
+          rgba(124, 255, 138, 0.28)
+        );
+
+      animation:
+        girar 2.3s linear infinite;
+    }
+
+    .objetivo-radar {
+      position:
+        absolute;
+
+      top:
+        54px;
+
+      left:
+        108px;
+
+      width:
+        8px;
+
+      height:
+        8px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--verde);
+
+      box-shadow:
+        0 0 12px var(--verde);
+
+      animation:
+        pulsar 1s infinite;
+    }
+
+    @keyframes girar {
+      from {
+        transform:
+          rotate(0deg);
+      }
+
+      to {
+        transform:
+          rotate(360deg);
+      }
+    }
+
+    @keyframes pulsar {
+      0%,
+      100% {
+        opacity:
+          0.3;
+      }
+
+      50% {
+        opacity:
+          1;
+      }
+    }
+
+    .datos {
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        12px;
+
+      margin:
+        28px 0;
+    }
+
+    .dato {
+      padding:
+        14px;
+
+      border:
+        1px solid var(--linea);
+
+      background:
+        rgba(9, 29, 18, 0.5);
+    }
+
+    .etiqueta {
+      display:
+        block;
+
+      margin-bottom:
+        5px;
+
+      color:
+        var(--texto-suave);
+
+      font-size:
+        0.77rem;
+    }
+
+    .mensaje {
+      min-height:
+        320px;
+
+      padding:
+        24px 0;
+
+      border-top:
+        1px dashed var(--linea);
+
+      border-bottom:
+        1px dashed var(--linea);
+
+      line-height:
+        1.75;
+
+      font-size:
+        1.03rem;
+
+      white-space:
+        pre-line;
+    }
+
+    .cursor {
+      display:
+        inline-block;
+
+      width:
+        9px;
+
+      height:
+        18px;
+
+      margin-left:
+        4px;
+
+      vertical-align:
+        middle;
+
+      background:
+        var(--verde);
+
+      animation:
+        parpadear 0.8s infinite;
+    }
+
+    @keyframes parpadear {
+      0%,
+      45% {
+        opacity:
+          1;
+      }
+
+      46%,
+      100% {
+        opacity:
+          0;
+      }
+    }
+
+    .estado {
+      margin-top:
+        24px;
+
+      text-align:
+        center;
+
+      color:
+        var(--verde);
+
+      font-weight:
+        bold;
     }
 
     .mision {
-      margin-top: 26px;
-      padding: 22px;
+      margin-top:
+        28px;
 
-      border: 1px solid var(--linea);
-      background: rgba(10, 34, 21, 0.65);
+      padding:
+        22px;
+
+      border:
+        1px solid var(--linea);
+
+      background:
+        rgba(10, 34, 21, 0.65);
     }
 
     .medidor {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin: 14px 0;
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        5px;
+
+      margin:
+        14px 0;
     }
 
     .medidor span {
-      width: 24px;
-      height: 16px;
-      background: var(--verde);
+      width:
+        24px;
+
+      height:
+        16px;
+
+      background:
+        var(--verde);
     }
 
     .dorado {
-      color: var(--dorado);
+      color:
+        var(--dorado);
+    }
+
+    .medallas {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        12px;
+
+      margin-top:
+        22px;
+    }
+
+    .medalla {
+      padding:
+        16px 10px;
+
+      border:
+        1px solid var(--linea);
+
+      text-align:
+        center;
+
+      background:
+        rgba(0, 0, 0, 0.18);
+    }
+
+    .simbolo-medalla {
+      display:
+        block;
+
+      margin-bottom:
+        8px;
+
+      color:
+        var(--dorado);
+
+      font-size:
+        2rem;
     }
 
     .pie {
-      margin-top: 22px;
-      color: var(--texto-suave);
-      font-size: 0.82rem;
-      text-align: center;
+      margin-top:
+        24px;
+
+      color:
+        var(--texto-suave);
+
+      font-size:
+        0.82rem;
+
+      text-align:
+        center;
     }
 
     @media (max-width: 650px) {
-      .datos {
-        grid-template-columns: 1fr;
+      .datos,
+      .medallas {
+        grid-template-columns:
+          1fr;
       }
 
       .panel {
-        padding: 28px 20px;
+        padding:
+          28px 20px;
       }
 
       .contenedor {
-        width: min(100% - 16px, 900px);
+        width:
+          min(100% - 14px, 920px);
       }
     }
   </style>
@@ -271,9 +678,55 @@
 
   <main class="contenedor">
 
-    <!-- PANTALLA DE INICIO -->
+    <section
+      id="pantallaAcceso"
+      class="panel"
+    >
 
-    <section id="inicio" class="panel">
+      <div class="centrado">
+
+        <div class="insignia">
+          CUARTEL PAPÁ · SISTEMA CENTRAL
+        </div>
+
+        <h1>SISTEMA CLASIFICADO</h1>
+
+        <div class="subtitulo">
+          AUTORIZACIÓN DEL ALTO MANDO
+        </div>
+
+        <div class="radar-area">
+
+          <div class="radar">
+
+            <div class="barrido"></div>
+
+            <div class="objetivo-radar"></div>
+
+          </div>
+
+        </div>
+
+        <button
+          class="boton-inicio"
+          onclick="iniciarConSonido()"
+        >
+          INICIAR SISTEMA CON SONIDO
+        </button>
+
+        <div class="aviso-audio">
+          Pulsa el botón para activar los efectos de sonido.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section
+      id="pantallaInicio"
+      class="panel oculto"
+    >
 
       <div class="centrado">
 
@@ -291,19 +744,23 @@
 
       <div
         id="textoInicio"
-        style="margin-top: 34px;"
+        class="terminal"
       ></div>
 
       <div class="progreso">
-        <div id="barra" class="barra"></div>
+        <div
+          id="barra"
+          class="barra"
+        ></div>
       </div>
 
     </section>
 
 
-    <!-- PANTALLA PRINCIPAL -->
-
-    <section id="principal" class="panel oculto">
+    <section
+      id="pantallaPrincipal"
+      class="panel oculto"
+    >
 
       <header class="centrado">
 
@@ -323,6 +780,17 @@
 
 
       <div class="datos">
+
+        <div class="dato">
+
+          <span class="etiqueta">
+            AGENTE AUTORIZADO
+          </span>
+
+          ALAN YAEL FLORES MENDOZA
+
+        </div>
+
 
         <div class="dato">
 
@@ -367,20 +835,46 @@
 
         </div>
 
+
+        <div class="dato">
+
+          <span class="etiqueta">
+            ESTADO OPERATIVO
+          </span>
+
+          ACTIVO / AUTORIZADO
+
+        </div>
+
       </div>
 
 
-      <div id="mensaje" class="mensaje"></div>
+      <div class="mensaje">
+
+        <span id="mensaje"></span>
+
+        <span
+          id="cursor"
+          class="cursor"
+        ></span>
+
+      </div>
 
 
-      <div id="autorizacion" class="estado oculto">
+      <div
+        id="autorizacion"
+        class="estado oculto"
+      >
 
         ✔ MENSAJE AUTENTICADO POR EL ALTO MANDO
 
       </div>
 
 
-      <div id="botones" class="acciones oculto">
+      <div
+        id="botones"
+        class="acciones oculto"
+      >
 
         <button onclick="mostrarMision()">
           ACEPTAR NUEVA MISIÓN
@@ -391,6 +885,7 @@
           href="https://share.google/UOUPYWFNqKbEEtXVE"
           target="_blank"
           rel="noopener"
+          onclick="sonidoVideo()"
         >
           VER VIDEO DEL COMANDANTE
         </a>
@@ -398,7 +893,10 @@
       </div>
 
 
-      <div id="mision" class="mision oculto">
+      <div
+        id="mision"
+        class="mision oculto"
+      >
 
         <div class="centrado">
 
@@ -471,6 +969,43 @@
 
         </div>
 
+
+        <div class="medallas">
+
+          <div class="medalla">
+
+            <span class="simbolo-medalla">
+              ★
+            </span>
+
+            DISCIPLINA
+
+          </div>
+
+
+          <div class="medalla">
+
+            <span class="simbolo-medalla">
+              ◆
+            </span>
+
+            CONSTANCIA
+
+          </div>
+
+
+          <div class="medalla">
+
+            <span class="simbolo-medalla">
+              ▲
+            </span>
+
+            VALOR
+
+          </div>
+
+        </div>
+
       </div>
 
 
@@ -489,6 +1024,207 @@
 
   <script>
 
+    let contextoAudio = null;
+
+
+    function prepararAudio() {
+
+      if (!contextoAudio) {
+
+        contextoAudio =
+          new (
+            window.AudioContext ||
+            window.webkitAudioContext
+          )();
+
+      }
+
+
+      if (
+        contextoAudio.state === "suspended"
+      ) {
+
+        contextoAudio.resume();
+
+      }
+
+    }
+
+
+    function beep(
+      frecuencia = 700,
+      duracion = 0.08,
+      volumen = 0.04,
+      tipo = "square"
+    ) {
+
+      prepararAudio();
+
+
+      const oscilador =
+        contextoAudio.createOscillator();
+
+
+      const ganancia =
+        contextoAudio.createGain();
+
+
+      oscilador.type =
+        tipo;
+
+
+      oscilador.frequency.setValueAtTime(
+        frecuencia,
+        contextoAudio.currentTime
+      );
+
+
+      ganancia.gain.setValueAtTime(
+        volumen,
+        contextoAudio.currentTime
+      );
+
+
+      ganancia.gain.exponentialRampToValueAtTime(
+        0.001,
+        contextoAudio.currentTime + duracion
+      );
+
+
+      oscilador.connect(
+        ganancia
+      );
+
+
+      ganancia.connect(
+        contextoAudio.destination
+      );
+
+
+      oscilador.start();
+
+
+      oscilador.stop(
+        contextoAudio.currentTime + duracion
+      );
+
+    }
+
+
+    function sonidoInicio() {
+
+      beep(
+        260,
+        0.13,
+        0.045,
+        "sawtooth"
+      );
+
+
+      setTimeout(
+        () => beep(
+          390,
+          0.13,
+          0.045,
+          "sawtooth"
+        ),
+        150
+      );
+
+
+      setTimeout(
+        () => beep(
+          520,
+          0.18,
+          0.05,
+          "square"
+        ),
+        300
+      );
+
+    }
+
+
+    function sonidoAcceso() {
+
+      beep(
+        650,
+        0.12,
+        0.045,
+        "sine"
+      );
+
+
+      setTimeout(
+        () => beep(
+          900,
+          0.15,
+          0.05,
+          "sine"
+        ),
+        130
+      );
+
+
+      setTimeout(
+        () => beep(
+          1200,
+          0.23,
+          0.05,
+          "sine"
+        ),
+        280
+      );
+
+    }
+
+
+    function sonidoMision() {
+
+      beep(
+        760,
+        0.11,
+        0.045,
+        "square"
+      );
+
+
+      setTimeout(
+        () => beep(
+          980,
+          0.11,
+          0.045,
+          "square"
+        ),
+        130
+      );
+
+
+      setTimeout(
+        () => beep(
+          1250,
+          0.24,
+          0.05,
+          "sine"
+        ),
+        270
+      );
+
+    }
+
+
+    function sonidoVideo() {
+
+      beep(
+        900,
+        0.1,
+        0.04,
+        "sine"
+      );
+
+    }
+
+
     const mensajesInicio = [
 
       "Conectando con el Alto Mando...",
@@ -499,25 +1235,58 @@
 
       "Nivel de acceso: MÁXIMO",
 
+      "Analizando expediente académico...",
+
       "Descifrando mensaje clasificado..."
 
     ];
 
 
-    const textoInicio =
-      document.getElementById("textoInicio");
+    let paso =
+      0;
 
 
-    const barra =
-      document.getElementById("barra");
+    function iniciarConSonido() {
+
+      prepararAudio();
+
+      sonidoInicio();
 
 
-    let paso = 0;
+      document
+        .getElementById("pantallaAcceso")
+        .classList
+        .add("oculto");
+
+
+      document
+        .getElementById("pantallaInicio")
+        .classList
+        .remove("oculto");
+
+
+      setTimeout(
+        iniciarSistema,
+        500
+      );
+
+    }
 
 
     function iniciarSistema() {
 
-      if (paso < mensajesInicio.length) {
+      const textoInicio =
+        document.getElementById("textoInicio");
+
+
+      const barra =
+        document.getElementById("barra");
+
+
+      if (
+        paso <
+        mensajesInicio.length
+      ) {
 
         const linea =
           document.createElement("div");
@@ -528,16 +1297,32 @@
 
 
         linea.textContent =
-          "> " + mensajesInicio[paso];
+          "> " +
+          mensajesInicio[paso];
 
 
-        textoInicio.appendChild(linea);
+        textoInicio.appendChild(
+          linea
+        );
+
+
+        beep(
+          470 + paso * 65,
+          0.07,
+          0.025,
+          "square"
+        );
 
 
         barra.style.width =
-          ((paso + 1) /
-          mensajesInicio.length *
-          100) + "%";
+          (
+            (
+              paso + 1
+            ) /
+            mensajesInicio.length *
+            100
+          ) +
+          "%";
 
 
         paso++;
@@ -545,30 +1330,39 @@
 
         setTimeout(
           iniciarSistema,
-          650
+          700
         );
 
       } else {
 
-        setTimeout(() => {
-
-          document
-            .getElementById("inicio")
-            .classList
-            .add("oculto");
-
-
-          document
-            .getElementById("principal")
-            .classList
-            .remove("oculto");
-
-
-          escribirMensaje();
-
-        }, 700);
+        setTimeout(
+          mostrarPantallaPrincipal,
+          800
+        );
 
       }
+
+    }
+
+
+    function mostrarPantallaPrincipal() {
+
+      sonidoAcceso();
+
+
+      document
+        .getElementById("pantallaInicio")
+        .classList
+        .add("oculto");
+
+
+      document
+        .getElementById("pantallaPrincipal")
+        .classList
+        .remove("oculto");
+
+
+      escribirMensaje();
 
     }
 
@@ -593,7 +1387,8 @@ Fin del comunicado.
 [Este mensaje se guardará en tu memoria para siempre]`;
 
 
-    let letra = 0;
+    let letra =
+      0;
 
 
     function escribirMensaje() {
@@ -602,10 +1397,27 @@ Fin del comunicado.
         document.getElementById("mensaje");
 
 
-      if (letra < comunicado.length) {
+      if (
+        letra <
+        comunicado.length
+      ) {
 
         espacioMensaje.textContent +=
           comunicado.charAt(letra);
+
+
+        if (
+          letra % 8 === 0
+        ) {
+
+          beep(
+            760,
+            0.018,
+            0.008,
+            "square"
+          );
+
+        }
 
 
         letra++;
@@ -613,10 +1425,16 @@ Fin del comunicado.
 
         setTimeout(
           escribirMensaje,
-          18
+          24
         );
 
       } else {
+
+        document
+          .getElementById("cursor")
+          .classList
+          .add("oculto");
+
 
         document
           .getElementById("autorizacion")
@@ -629,6 +1447,14 @@ Fin del comunicado.
           .classList
           .remove("oculto");
 
+
+        beep(
+          1050,
+          0.16,
+          0.04,
+          "sine"
+        );
+
       }
 
     }
@@ -636,25 +1462,29 @@ Fin del comunicado.
 
     function mostrarMision() {
 
+      sonidoMision();
+
+
       const mision =
         document.getElementById("mision");
 
 
-      mision.classList.remove("oculto");
+      mision.classList.remove(
+        "oculto"
+      );
 
 
       mision.scrollIntoView({
 
-        behavior: "smooth",
+        behavior:
+          "smooth",
 
-        block: "center"
+        block:
+          "center"
 
       });
 
     }
-
-
-    iniciarSistema();
 
   </script>
 
